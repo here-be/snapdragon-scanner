@@ -1,0 +1,63 @@
+{
+  "name": "snapdragon-scanner",
+  "description": "Easily scan a string with an object of regex patterns to produce an array of tokens.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/here-be/snapdragon-scanner",
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "repository": "here-be/snapdragon-scanner",
+  "bugs": {
+    "url": "https://github.com/here-be/snapdragon-scanner/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "gulp-format-md": "^1.0.0",
+    "mocha": "^5.2.0"
+  },
+  "keywords": [
+    "ast",
+    "compile",
+    "compiler",
+    "convert",
+    "node",
+    "parse",
+    "parser",
+    "render",
+    "scan",
+    "scanner",
+    "snapdragon",
+    "token",
+    "tokenize",
+    "tokenizer",
+    "transform"
+  ],
+  "verb": {
+    "toc": false,
+    "layout": "default",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "lint": {
+      "reflinks": true
+    },
+    "related": {
+      "list": [
+        "snapdragon-lexer",
+        "snapdragon-node",
+        "snapdragon-token"
+      ]
+    }
+  }
+}
