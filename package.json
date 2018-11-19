@@ -1,6 +1,6 @@
 {
   "name": "snapdragon-scanner",
-  "description": "Easily scan a string with an object of regex patterns to produce an array of tokens.",
+  "description": "Easily scan a string with an object of regex patterns to produce an array of tokens. ~100 sloc.",
   "version": "1.0.0",
   "homepage": "https://github.com/here-be/snapdragon-scanner",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
@@ -20,7 +20,7 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "gulp-format-md": "^1.0.0",
+    "gulp-format-md": "^2.0.0",
     "mocha": "^5.2.0"
   },
   "keywords": [

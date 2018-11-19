@@ -5,42 +5,42 @@ const assert = require('assert');
 const Scanner = require('./');
 let scanner;
 
-describe('scanner', function() {
-  beforeEach(function() {
+describe('scanner', () => {
+  beforeEach(() => {
     scanner = new Scanner('//foo/bar.com');
   });
 
-  it('should throw when regex matches an empty string', function() {
-    scanner.rules = new Map();
-    scanner.addType('foo', /^(?=.)/);
-    assert.throws(() => scanner.scan(), /empty/);
+  it('should throw when regex matches an empty string', () => {
+    scanner.addRule('foo', /^(?=.)/);
+    assert.throws(() => scanner.scan(), /regex should not match an empty string/);
   });
 
-  it('should add type to error object', function(cb) {
-    scanner.rules = new Map();
-    scanner.addType('foo', /^(?=.)/);
+  it('should add rule to error object', cb => {
+    scanner.addRule('foo', /^(?=.)/);
 
     try {
       scanner.scan();
     } catch (err) {
-      assert.equal(err.type, 'foo');
+      assert.equal(err.rule, 'foo');
       cb();
     }
   });
 
-  it('should get the next token from the given regex', function() {
+  it('should get the next token from the given regex', () => {
     scanner = new Scanner('//foo/bar.com', {
-      dot: /^\./,
-      slash: /^\//,
-      text: /^\w+/
+      rules: {
+        dot: /^\./,
+        slash: /^\//,
+        text: /^\w+/
+      }
     });
 
-    assert.deepEqual(scanner.scan(), { type: 'slash', value: '/' });
-    assert.deepEqual(scanner.scan(), { type: 'slash', value: '/' });
-    assert.deepEqual(scanner.scan(), { type: 'text', value: 'foo' });
-    assert.deepEqual(scanner.scan(), { type: 'slash', value: '/' });
-    assert.deepEqual(scanner.scan(), { type: 'text', value: 'bar' });
-    assert.deepEqual(scanner.scan(), { type: 'dot', value: '.' });
-    assert.deepEqual(scanner.scan(), { type: 'text', value: 'com' });
+    assert.deepEqual(scanner.scan().value, '/' );
+    assert.deepEqual(scanner.scan().value, '/' );
+    assert.deepEqual(scanner.scan().value, 'foo' );
+    assert.deepEqual(scanner.scan().value, '/' );
+    assert.deepEqual(scanner.scan().value, 'bar' );
+    assert.deepEqual(scanner.scan().value, '.' );
+    assert.deepEqual(scanner.scan().value, 'com' );
   });
 });

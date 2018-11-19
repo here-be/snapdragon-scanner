@@ -1,7 +1,12 @@
 sudo: false
+os:
+  - linux
+  - osx
+  - windows
 language: node_js
 node_js:
-  - 'node'
-  - '6'
-  - '5'
-  - '4'
+  - node
+  - '11'
+  - '10'
+  - '9'
+  - '8'
